@@ -1,0 +1,35 @@
+.navbar {
+  background-color: var(--bg-color);
+  color: var(--white-color);
+  font-family: var(--ubuntu-font);
+}
+.navlist {
+  position: relative;
+  font-family: var(--open-sans-font);
+}
+
+.navlist li::before {
+  content: "";
+  position: absolute;
+  top: 1.5rem;
+  height: 0.1rem;   
+  width: 0%;
+  transition: all 0.3s ease-in-out;
+}
+
+.navlist li:hover::before {
+  background-color: var(--white-color);
+  width: 7%;
+}
+
+.loginbtn{
+    transition: all 0.3s ease-in-out;
+    font-family: var(--nunito-sans-font);
+}
+
+.loginbtn:hover{
+    background-color: var(--white-color);
+    color: var(--bg-color);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}

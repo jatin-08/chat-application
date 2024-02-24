@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #007016cf;
+  --white-color: #ffffff;
+  --grey-color: #495057;
+  --open-sans-font: "Open Sans", sans-serif;
+  --ubuntu-font: "Ubuntu", sans-serif;
+  --roboto-sans-font: "Roboto Condensed", sans-serif;
+  --nunito-sans-font: "Nunito Sans", sans-serif;
+  --noto-sans-font: "Noto Sans", sans-serif;
+}

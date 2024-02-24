@@ -1,0 +1,43 @@
+.login-outer-box {
+  background-color: var(--cream-color);
+}
+
+.login-inner-box {
+  border: 5px solid black;
+  border-radius: 3rem;
+  height: 40rem;
+  background: rgba(232, 199, 199, 0.14);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.1px);
+  -webkit-backdrop-filter: blur(4.1px);
+  border: 1px solid rgba(232, 199, 199, 0.3);
+}
+
+.login-image {
+  width: 50%;
+  height: 20rem;
+}
+
+.card {
+  text-align: center;
+  width: 50%;
+  background: rgba(152, 234, 122, 0.514);
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.1px);
+  -webkit-backdrop-filter: blur(4.1px);
+  border: 1px solid rgba(232, 199, 199, 0.3);
+}
+
+.card h1{
+    font-family: var(--ubuntu-font);
+}
+
+.card h1::before{
+    content: "";
+    position: absolute;
+    width: 20rem;
+    height: 0.2rem;
+    background-color: var(--white-color);
+    top: 5rem;
+}

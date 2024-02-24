@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -12,6 +12,7 @@
   --bg-color: #007016cf;
   --white-color: #ffffff;
   --grey-color: #495057;
+  --cream-color: #f5e6d4;
   --open-sans-font: "Open Sans", sans-serif;
   --ubuntu-font: "Ubuntu", sans-serif;
   --roboto-sans-font: "Roboto Condensed", sans-serif;

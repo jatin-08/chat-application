@@ -29,15 +29,24 @@
   border: 1px solid rgba(232, 199, 199, 0.3);
 }
 
-.card h1{
-    font-family: var(--ubuntu-font);
+.card h1 {
+  font-family: var(--ubuntu-font);
 }
 
-.card h1::before{
-    content: "";
-    position: absolute;
-    width: 20rem;
-    height: 0.2rem;
-    background-color: var(--white-color);
-    top: 5rem;
+.card h1::before {
+  content: "";
+  position: absolute;
+  width: 20rem;
+  height: 0.2rem;
+  background-color: var(--white-color);
+  top: 5rem;
+}
+
+.forgot-text{
+  margin-top: -1.5rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+  font-family: var(--noto-sans-font);
+  font-size: 0.9rem;
+  color: darkblue;
 }

@@ -13,7 +13,7 @@ const InputBox = (props: any) => {
               onChange={props.onChange}
               name={props.name}
               autoComplete="off"
-              className="p-3 my-5 input-box border-none outline-none"
+              className="p-3 my-3 input-box border-none outline-none"
               label={props.label}
               isRequired
             />

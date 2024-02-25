@@ -1,0 +1,12 @@
+.signup-card h1 {
+  font-family: var(--ubuntu-font);
+}
+
+.signup-card h1::before {
+  content: "";
+  position: absolute;
+  width: 18rem;
+  height: 0.2rem;
+  background-color: var(--white-color);
+  top: 3.5rem;
+}

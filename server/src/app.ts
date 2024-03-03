@@ -1,7 +1,8 @@
 import express from "express";
 import bodyParser from "body-parser";
+import mongoose from "mongoose";
 import cors from "cors";
-import { port, path } from "./config";
+import { port, path, dbString } from "./config";
 import { BaseController } from "./controller/baseController";
 
 export class App {
@@ -12,6 +13,7 @@ export class App {
     this.app = express();
     this.port = port;
     this._initializeMiddleware();
+    this._connectToDB();
     this._initializeController(controller);
   }
 
@@ -24,6 +26,17 @@ export class App {
   private _initializeMiddleware() {
     this.app.use(bodyParser.json());
     this.app.use(bodyParser.urlencoded({ extended: true }));
+  }
+
+  private _connectToDB() {
+    mongoose
+      .connect(`${dbString}`)
+      .then(() => {
+        console.log("Database Connected!");
+      })
+      .catch((error) => {
+        console.log("Error in connecting to database", error);
+      });
   }
 
   public listen() {

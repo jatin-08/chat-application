@@ -12,8 +12,8 @@ export class App {
   constructor(controller: BaseController[], port: any) {
     this.app = express();
     this.port = port;
-    this._initializeMiddleware();
     this._connectToDB();
+    this._initializeMiddleware();
     this._initializeController(controller);
   }
 

@@ -1,9 +1,9 @@
-import { signupEntity } from "../model/signupEntity.model";
+import User from '../model/usersModel.model'
 import BaseService from "./baseService.services";
 
 class SignupService extends BaseService {
-  constructor(entity = signupEntity) {
-    super(entity);
+  constructor(model = User) {
+    super(model);
   }
 }
 

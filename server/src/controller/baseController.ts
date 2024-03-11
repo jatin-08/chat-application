@@ -1,19 +1,23 @@
 import express from "express";
 import { APP_ROUTES } from "../core/appRoutes";
 import BaseService from "../services/baseService.services";
+import validationFDMiddleware from "../middleware/validationFormMiddleware";
+import { SignupDto } from "../validation/signup/signup.dto";
 
 export abstract class BaseController {
+  dto:any
   constructor(
     public path: APP_ROUTES,
     public router = express.Router(),
     public service: BaseService
   ) {
+    this.dto = this.service.getDto();
     this._initializeRoutes();
   }
 
   public _initializeRoutes(): void {
     this.router.get(`${this.path}/getall`, this.getData.bind(this));
-    this.router.post(`${this.path}/add`, this.postData.bind(this));
+    this.router.post(`${this.path}/add`, validationFDMiddleware(this.dto),this.postData.bind(this));
   }
 
   protected getData(

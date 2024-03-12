@@ -3,9 +3,10 @@ import { APP_ROUTES } from "../core/appRoutes";
 import BaseService from "../services/baseService.services";
 import validationFDMiddleware from "../middleware/validationFormMiddleware";
 import { SignupDto } from "../validation/signup/signup.dto";
+import { authmiddleware } from "../middleware/authmiddleware";
 
 export abstract class BaseController {
-  dto:any
+  dto: any
   constructor(
     public path: APP_ROUTES,
     public router = express.Router(),
@@ -16,8 +17,8 @@ export abstract class BaseController {
   }
 
   public _initializeRoutes(): void {
-    this.router.get(`${this.path}/getall`, this.getData.bind(this));
-    this.router.post(`${this.path}/add`, validationFDMiddleware(this.dto),this.postData.bind(this));
+    this.router.get(`${this.path}/getall`, authmiddleware, this.getData.bind(this));
+    this.router.post(`${this.path}/add`, validationFDMiddleware(this.dto), this.postData.bind(this));
   }
 
   protected getData(

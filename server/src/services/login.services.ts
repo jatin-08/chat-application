@@ -1,3 +1,4 @@
+import { ApiError, BadRequest } from "../core/apiError";
 import User from "../model/usersModel.model";
 import { createjwt } from "../util/jwt/jwt";
 import { LoginDto } from "../validation/login/login.dto";
@@ -16,7 +17,7 @@ class LoginService extends BaseService {
         return new Promise(async (resolve, reject) => {
             let result = await this.model.findOne({ username: data.username, password: data.password, is_delete: 0 })
             if (result === null) {
-                return reject('Invalid Login Details!')
+                return reject("Invalid Username or Password")
             }
 
             // Transform the result according to jwt object

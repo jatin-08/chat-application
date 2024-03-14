@@ -2,16 +2,13 @@ import express from "express";
 import { APP_ROUTES } from "../core/appRoutes";
 import BaseService from "../services/baseService.services";
 import validationFDMiddleware from "../middleware/validationFormMiddleware";
-import { SignupDto } from "../validation/signup/signup.dto";
 import { authmiddleware } from "../middleware/authmiddleware";
+import { GenericResponse } from "../core/genericResponse";
 
 export abstract class BaseController {
   dto: any
-  constructor(
-    public path: APP_ROUTES,
-    public router = express.Router(),
-    public service: BaseService
-  ) {
+  constructor(public path: APP_ROUTES, public router = express.Router(),
+    public service: BaseService, public genericResponse: GenericResponse<any> = new GenericResponse<any>()) {
     this.dto = this.service.getDto();
     this._initializeRoutes();
   }
@@ -21,34 +18,38 @@ export abstract class BaseController {
     this.router.post(`${this.path}/add`, validationFDMiddleware(this.dto), this.postData.bind(this));
   }
 
-  protected getData(
-    req: express.Request,
-    res: express.Response,
-    _next: express.NextFunction
-  ) {
+  protected getData(req: express.Request, res: express.Response, _next: express.NextFunction) {
     this.service
       .getData()
       .then((data) => {
-        res.status(200).json(data);
+        this.sendResponse('success', null, data)
+        res.send(this.genericResponse)
       })
       .catch((error) => {
-        res.status(500).json(error);
+        this.sendResponse('failure', error, null)
+        res.send(this.genericResponse)
       });
   }
 
-  protected postData(
-    req: express.Request,
-    res: express.Response,
-    _next: express.NextFunction
-  ) {
+  protected postData(req: express.Request, res: express.Response, _next: express.NextFunction) {
     const data = req.body;
     this.service
       .createRecord(data, null)
       .then((data) => {
-        res.status(200).json(data);
+        this.sendResponse('success', null, data)
+        res.send(this.genericResponse)
       })
       .catch((error) => {
-        res.status(500).json(error);
+        this.sendResponse('failure', error, null)
+        res.send(this.genericResponse)
       });
   }
+
+  public sendResponse(status: string, error: string, data: any): GenericResponse<any> {
+    this.genericResponse.setStatus(status);
+    this.genericResponse.setError(error);
+    this.genericResponse.setData(data);
+    return this.genericResponse;
+  }
+
 }

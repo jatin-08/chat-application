@@ -12,6 +12,7 @@ import Home from "./pages/Home/Home.tsx";
 import Login from "./pages/Login/Login.tsx";
 import { NextUIProvider } from "@nextui-org/react";
 import Signup from "./pages/Signup/Signup.tsx";
+import Chat from "./pages/Chat/Chat.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,6 +20,7 @@ const router = createBrowserRouter(
       <Route path="" element={<Home />} />
       <Route path="login" element={<Login />} />
       <Route path="signup" element={<Signup />} />
+      <Route path="chat" element={<Chat />} />
     </Route>
   )
 );

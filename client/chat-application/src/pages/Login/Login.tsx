@@ -38,7 +38,7 @@ const Login = () => {
                 Are You agree with our terms and conditions.
               </p>
               <div className="mx-5 bg-green-950 text-white px-3 py-2 rounded-2xl w-1/2 loginbtn font-semibold">
-                <Link to="/">
+                <Link to="/chat">
                   <Button name="Login" />
                 </Link>
               </div>

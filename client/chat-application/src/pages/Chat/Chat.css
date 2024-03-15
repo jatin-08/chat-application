@@ -1,0 +1,47 @@
+.chat-section {
+    background: rgb(159, 159, 159);
+    background: linear-gradient(90deg, rgba(159, 159, 159, 1) 2%, rgba(237, 237, 237, 1) 53%, rgba(159, 159, 159, 1) 99%);
+    width: 100%;
+    height: 48.7rem;
+}
+
+.menu-bar {
+    background-color: var(--bg-color);
+}
+
+.sidebar {
+    background-color: #2d383e50;
+    border: 1px solid rgba(70, 69, 69, 0.47);
+    height: 46rem;
+}
+
+.userprofile {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+}
+
+.userprofile img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.chat-box {
+    margin-left: 2px;
+    border: 1px solid rgba(70, 69, 69, 0.47);
+    height: 46rem;
+    background-color: #2d383e50;
+
+}
+
+.userlist {
+    font-family: var(--open-sans-font);
+}
+
+.input {
+    /* width: 100%; */
+    margin-inline: min(2em, calc(var(--inline-padding-of-input) + var(--gap)));
+    background: none;
+    border: none;
+}
